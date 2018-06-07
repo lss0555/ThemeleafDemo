@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常用th标签</title>
+</head>
+<body>
+    <div>
+        替换ID:<p th:id="'xxx' + ${book.id}"/>
+    </div>
+    <br/><br/>
+
+    <div>
+        文本替换:<p th:text="${book.name}"/>
+    </div>
+    <br/><br/>
+    <div>
+        html的文本替换:<p th:utext="${book.htmlText}"/>
+    </div>
+    <br/><br/>
+
+    <div>
+        替换对象:<p th:object="${book}"/>
+    </div>
+    <br/><br/>
+
+    <div>
+        属性赋值:<input th:value="${book.type}"/>
+    </div>
+    <br/><br/>
+
+    <!--<div>-->
+        <!--变量赋值运算:<p th:with="isEven=${prodStat.count}%2==0"/>-->
+    <!--</div>-->
+    <!--<br/><br/>-->
+
+    <div>
+        <!--设置样式:<p th:style="'display:' + @{(${sitrue} ? 'none' : 'inline-block')} + '"/>-->
+    </div>
+    <br/><br/>
+
+
+    <div>
+        点击事件:<p th:onclick="'getCollect()'">点击</p>
+    </div>
+    <br/><br/>
+    <div>
+        IF语句:
+        <a th:if="${book.name}==javaweb1">javaweb111</a>
+        <a th:if="${book.name}==javaweb">javaweb</a>
+         <a th:href="@{/login}"  th:unless=${book.name}==javaweb1>Login111</a>
+    </div>
+    <br/><br/>
+
+
+    <div>
+        switch语句:
+        <div th:switch="${book.name}">
+            <p th:case="'javaweb'">javaweb javaweb javaweb javaweb</p>
+            <p th:case="'javaweb1'">javaweb is an javaweb</p>
+        </div>
+    </div>
+
+    <div>
+        布局标签:
+        <div th:include="head :: title"></div>
+    </div>
+    <br/><br/>
+
+    <div>
+        引入图片:
+        <img alt="Logo" src="../img/logo.png" th:src="" />
+    </div>
+    <br/><br/>
+</body>
+
+
+
+<script>
+    function getCollect() {
+        alert("我是点击事件");
+    }
+</script>
+</html>

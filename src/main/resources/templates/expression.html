@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>标准表达式语法</title>
+    <!--
+        它们分为四类：
+        1.变量表达式
+        2.选择或星号表达式
+        3.文字国际化表达式
+        4.URL表达式
+    -->
+</head>
+<body>
+    <div>
+       用户名 <span th:text="${user.username}"/>
+       密  码 <span th:text="${user.password}"/>
+    </div>
+
+    <div>
+        <br/> <br/>
+        <div>遍历集合:</div>
+        <div th:each="user : ${users}">
+            <div th:object="${user}">
+                用户名:<span th:text="*{username}"/>
+                密  码:<span th:text="${user.password}"/>
+            </div>
+         </div>
+    </div>
+
+   <br/> <br/>
+  <div>URL表达式指的是把一个有用的上下文或回话信息添加到URL</div>
+  <form th:action="@{/login}">
+        用户名:<input name="username" id="username" value=""/>
+        密  码:<input name="password" id="password" value=""/>
+               <input value="提交" type="submit"/>
+  </form>
+</body>
+</html>
